@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <title>WaltCode BudgetApp</title>
+</head>
+<body>
+    <div>
+        
+    </div>
+    <div class="container" >
+        <div class="dashboard">
+            <p></p>
+            
+            <div class="user">
+                <div class="nameTag">
+                    <div class="date"></div>
+                    <div class="time"></div>
+                </div>
+                
+                <div class="switch">
+                   <div class="button">
+                        <input type="checkbox" name="switch" id="switch">
+                   </div>
+                   <div class="modetext"></div> 
+                </div>
+            </div>
+          
+        </div>
+        <div class="budget">
+            <div class="title">Balance</div>
+            <div class="balance_value"></div>
+        </div>
+        <div class="row">
+            <div class="income">
+                <div class="title">Income</div>
+                <div class="income_value">
+                   </div>
+            </div>
+            <div class="chart"></div>
+            <div class="expense">
+                <div class="title">Expenses</div>
+                <div class="expense_value">
+                   </div>
+            </div>
+        </div>
+       
+        <div class="dashboard_tabs"> 
+            <p>Dashboard</p>
+            <div class="tabs">
+                <div class="tab1">Income</div>
+                <div class="tab2">Expenses</div>
+                <div class="tab3 active">All Records</div>
+            </div>
+            <div id="allIncomes" class="hide">
+                <ul class="list">
+                </ul>
+                <div class="inputs">
+                    <input type="text" name="" id="income_title" placeholder="Name">
+                    <input type="text" name="" id="income_amount" placeholder="Amount">
+                    <input type="submit" value="+" id="add_income">
+                </div>
+            </div>
+            <div id="allExpenses" class="hide">
+                <ul class="list"></ul>
+                <div class="inputs">
+                    <input type="text" name="" id="exp_title" placeholder="Name">
+                    <input type="text" name="" id="exp_amount" placeholder="Amount">
+                    <input type="submit" value="+" id="add_exp">
+                </div>
+            </div>
+            <div id="allRecords" class="">
+                <ul class="listrec"></ul>
+            </div>
+        </div>
+    </div>
+    <script src="chart.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

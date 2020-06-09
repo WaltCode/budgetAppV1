@@ -1,0 +1,541 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    width: 100vw;
+    height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f2f3f7;
+    overflow:hidden ;
+    transition: 0.4s;
+}
+.container{
+    position: absolute;
+    width: 350px;
+    box-shadow: 7px 7px 7px rgba(0,0,0,0.07),
+                -7px -7px 10px #fff;
+    border-radius: 10px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    
+}
+.dashboard{
+    margin: 10px;
+    margin-top: 20px;
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    transition: 0.5s;
+    animation: fadeInBottom .5s ease-in 1;
+}
+.user{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items:flex-end;
+    justify-content: space-between;
+}
+.nameTag{
+    width: 50%;
+    height: 40px;
+    border-radius: 10px;
+    box-shadow: inset -3px -3px 4px #fff,
+                inset 3px 3px 4px rgba(0,0,0,0.1);             
+    color: rebeccapurple;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    font-weight: bold;
+    letter-spacing: 1px;
+    font-size: 12px;
+}
+.dashboard p{
+    color: rebeccapurple;
+    font-weight: bold;
+    font-size: 12px;
+}
+.budget{
+    width: 45%;
+    height: 70px;
+    margin: 10px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 10px;
+    color: rebeccapurple;
+    border: none;
+    outline: none;
+    box-shadow: 3px 3px 7px rgba(0,0,0,0.07),
+                -3px -3px 7px #fff;
+    animation: fadeInLeft 0.5s ease 1;
+}
+.tab1, .tab2, .tab3{
+    height: 35px;
+    width: 26%;
+    border-radius: 4px;
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.7),
+                -1px -1px 3px #ffffff35;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.row{
+    display: flex;
+    flex-direction: row;
+    width: 95%;
+    height: 70px;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+.income, .expense{
+    border-radius: 5px;
+    width: 25%;
+    height: 40px;
+    box-shadow: -2px -2px 4px #fff,
+                2px 2px 3px rgba(0,0,0,0.1); 
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    justify-content: center;
+    margin: 0 10px;
+}
+.balance_value{
+    font-size: 25px;
+}
+.budget .title, .income .title, .expense .title{
+    font-size: 14px;
+    color: rebeccapurple;
+    font-weight: 400;
+}
+.expense .title{
+    color: orangered;
+}
+.income_value, .expense_value{
+    font-size: 12px;
+    font-weight: 600;
+}
+.income_value{
+    color: rebeccapurple;
+}
+.expense_value{
+    color: orangered;
+}
+.chart{
+    animation: fadeInShake 1.5s ease-in 1;
+}
+.switch{
+    border-radius: 3px;
+    width: 150px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border-radius: 5px;
+    box-shadow: 3px 3px 5px #00000025,
+                -3px -3px 5px #fff; */
+               
+    /* font-size: 12px; */
+}
+.switch .button{
+    width: 70px;
+    height: 30px;
+}
+
+.button input{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    -webkit-appearance: none;
+    box-shadow: 3px 3px 5px #00000025,
+                -3px -3px 5px #fff,
+                inset 3px 3px 5px #00000025,
+                inset -3px -3px 5px #fff;
+}
+.button input:before{
+    content: "";
+    position: absolute;
+    width: 30px;
+    border-radius: 50%;
+    background: #f2f3f7;
+    left: 0;
+    height: 30px;
+    box-shadow:  -3px -3px 5px #fff,
+                3px 3px 5px #00000025;
+    transition: 0.4s;
+}
+input:checked:before{
+    left: 40px;
+}
+.modetext:before{
+    position: relative;
+    content: "Dark?";
+    font-size: 12px;
+    padding-left: 7px;
+    font-weight: bold;
+    color: #22222293;
+
+}
+.dashboard p span{
+    font-size: 15px;
+}
+.modetext.checked:before{
+    content: "Light?";
+    color: rgb(11, 226, 18);
+}
+
+.dashboard_tabs{
+    border-radius: 10px 10px 0 0;
+    width: 95%;
+    margin: 15px auto;
+    background-color: rebeccapurple;
+    display: flex;
+    flex-direction: column;
+    font-size: larger;
+    color: white;
+    animation: fadeInTop .5s ease-in 1;
+}
+.dashboard_tabs .tabs{
+    display: flex;
+    flex-direction: row;
+    font-size: 15px;
+    justify-content: space-around;
+    color: rgba(255,255,255,0.3);
+}
+.dashboard_tabs p{
+    padding: 15px 15px 15px 45px;
+}
+.dashboard_tabs p::before{
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: white;
+    box-shadow: 3px 3px 5px rgba(0,0,0,0.7),
+                 -1px -1px 3px #ffffff99;
+    left: 25px;
+    margin-top: 5px;
+}
+.active{
+    color: rgba(255,255,255,1);
+    box-shadow: inset 1px 1px 3px rgba(0,0,0,0.7),
+                inset -1px -1px 3px #ffffff35;
+}
+.hide{
+    display: none;
+}
+ul.list::-webkit-scrollbar, 
+ul.listrec::-webkit-scrollbar{
+    position: absolute;
+    width: 10px;
+    right: 2px;
+}
+ul.list::-webkit-scrollbar-track,
+ul.listrec::-webkit-scrollbar-track{
+    border-radius: 0 15px 15px 0;
+    border: none;
+    box-shadow: 
+                inset 1px 1px 3px rgba(0,0,0,0.7),
+                inset -1px -1px 3px #ffffff35;
+}
+ul.list::-webkit-scrollbar-thumb,
+ul.listrec::-webkit-scrollbar-thumb{
+    padding: 5px 2px 0 2px;
+    border-radius: 15px;
+    background: linear-gradient(45deg, orange, yellow);
+}
+
+.inputs{
+    width: 95%;
+    height: 30px;
+    margin: 10px auto;
+    display: flex;
+    flex-direction: row;
+
+
+}
+.inputs input[type="text"]{
+    width: 120px;
+    margin: 0 auto;
+    border-radius: 3px;
+    border: none;
+    outline: none;
+    background: none;
+    box-shadow: inset 1px 1px 3px rgba(0,0,0,0.7),
+                inset -1px -1px 3px #ffffff35;
+    padding-left: 10px;
+    color: white;
+    transition: 0.5s;
+}
+.inputs input[type="text"]:hover{
+    width: 130px;
+    height: 30px;
+}
+.inputs input[type="text"]::placeholder{
+    color: #ffffff35;
+}
+ul.list, ul.listrec{
+    width: 95%;
+    list-style: none;
+    border-radius: 10px 10px 0 0;
+    height: 150px;
+    overflow-y: scroll;
+    margin: 10px auto;
+    box-shadow: inset 1px 1px 3px rgba(0,0,0,0.7),
+                inset -1px -1px 3px #ffffff55;
+
+}
+li.Expense{
+    color: orangered;
+}
+ul.listrec{
+    height: 190px;
+}
+ul.list li, ul.listrec li{
+    text-decoration: none;
+    font-size: 12px;
+    padding: 7px 0;
+    margin:0 10px;
+    border-bottom: 1px solid #ffffff35;
+    display: flex;
+
+
+}
+ul.list li .entry{
+    width: 85%;
+}
+ul.list li #edit, ul.list li #delete{
+    width: 20px;
+    height: inherit;
+    cursor: pointer;
+}
+ul.list li #delete{
+    margin-left: 5px;
+}
+.lightEditBg{
+    background-image: url(./edit\ \(1\).png); 
+    background-size: cover; 
+}
+.lightDelBg{
+    background-image: url(./delete.png);
+    background-size: cover;
+}
+.inputs input[type="submit"]{
+    width: 30px;
+    margin: 0 auto;
+    border: none;
+    outline: none;
+    border-radius: 3px;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.7),
+                -1px -1px 3px #ffffff35;
+    background:rebeccapurple ;
+    cursor: pointer;
+}
+.inputs input[type="submit"]:active{
+    box-shadow: inset 1px 1px 3px rgba(0,0,0,0.7),
+    inset -1px -1px 3px #ffffff35;
+}
+
+
+@keyframes fadeInTop{
+    0%{
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    100%{
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+@keyframes fadeInLeft{
+    0%{
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+@keyframes fadeInShake{
+    0%{
+        opacity: 0;
+        transform: translateX(20%);
+    }
+    25%{
+        opacity: 0.25;
+        transform: translateX(-20%);
+    }
+    50%{
+        opacity: 0.5;
+        transform: translateX(20%);
+    }
+    75%{
+        opacity: 0.75;
+        transform: translateX(-20%);
+    }
+    100%{
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+@keyframes fadeInBottom{
+    0%{
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    100%{
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+/* DARK MODE */
+
+body.dark{
+     background-color: #222;
+ }
+.dark .container{
+    box-shadow:inset -2px -2px 5px  rgba(0,0,0,0.5),
+                inset 3px 3px 5px rgba(255,255,255,0.07);
+    
+}
+.dark .nameTag{
+    box-shadow:inset -2px -2px 5px  rgba(0,0,0,0.5),
+                inset 3px 3px 5px rgba(255,255,255,0.07);         
+    color: rgb(11, 226, 18);
+}
+.dark .dashboard p{
+    color: rgb(11, 226, 18);
+    font-weight: bold;
+    font-size: 12px;
+}
+.darkEditBg{
+    background-image: url(./edit.png);
+    background-size: cover;
+}
+.darkDelBg{
+    background-image: url(./delete.png);
+    background-size: cover;
+}
+/* .dark .dashboard p{
+
+} */
+.dark .budget{
+    color: rgb(11, 226, 18);
+    box-shadow:inset -2px -2px 5px  rgba(0,0,0,0.5),
+        inset 3px 3px 5px rgba(255,255,255,0.07);
+    
+}
+.dark .tab1,.dark .tab2,.dark .tab3{
+    box-shadow:inset -2px -2px 5px  rgba(0,0,0,0.5),
+                inset 3px 3px 5px rgba(255,255,255,0.07);
+    
+}
+.dark .income,.dark .expense{
+    box-shadow:inset -2px -2px 5px  rgba(0,0,0,0.5),
+                inset 3px 3px 5px rgba(255,255,255,0.07);
+    
+}
+.dark .budget .title,.dark .income .title,.dark .expense .title{
+    font-size: 14px;
+    color: rgb(11, 226, 18);
+    font-weight: 400;
+}
+.dark .expense .title{
+    color: orangered;
+}
+
+.dark .income_value{
+    color: rgb(11, 226, 18);
+}
+.dark .dashboard_tabs{
+    background-color: #222;
+    color: rgb(11, 226, 18);
+    animation: fadeInTop .5s ease-in 1;
+}
+.dark .dashboard_tabs .tabs{
+    color: rgba(11,226,18,0.3);
+}
+.dark .dashboard_tabs p::before{
+    background-color: rgb(11, 226, 18);
+    box-shadow: 3px 3px 5px rgba(0,0,0,0.7),
+                 -1px -1px 3px #ffffff99;
+
+}
+.dark .active{
+    color: rgb(11, 226, 18);
+    box-shadow: inset 1px 1px 3px rgba(0,0,0,0.7),
+                inset -1px -1px 3px #ffffff35;
+}
+
+.dark ul.list::-webkit-scrollbar-thumb,
+.dark ul.listrec::-webkit-scrollbar-thumb{
+    
+    background: linear-gradient(45deg, rgba(11,226,18, 1), rgba(11,226,18,0.4));
+}
+
+.dark .inputs input[type="text"]{
+    
+    box-shadow: inset 1px 1px 3px rgba(0,0,0,0.7),
+                inset -1px -1px 3px #ffffff35;
+    padding-left: 10px;
+    color: rgb(11, 226, 18);
+    transition: 0.5s;
+}
+
+.dark .inputs input[type="text"]::placeholder{
+    color: rgba(11,226,18,0.3);
+}
+
+.dark ul.list li, ul.listrec li{  
+    border-bottom: 1px solid rgba(11,226,18,0.3);
+}
+.dark .inputs input[type="submit"]{
+    color: rgb(11, 226, 18);
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.7),
+                -1px -1px 3px #ffffff35;
+    background:#222 ;
+}
+.dark .inputs input[type="submit"]:active{
+    box-shadow: inset 1px 1px 3px rgba(0,0,0,0.7),
+                inset -1px -1px 3px #ffffff35;
+}
+.dark .button input{
+    box-shadow: 3px 3px 5px rgba(0,0,0,0.7),
+                 -1px -1px 3px #ffffff99,
+                 inset 1px 1px 3px rgba(0,0,0,0.7),
+                 inset -1px -1px 3px #ffffff35;
+}
+.dark .button input:before{
+    background: rgba(11,226,18, 1);
+    box-shadow:  3px 3px 5px rgba(0,0,0,0.7),
+                -1px -1px 3px #ffffff99;
+    
+}
+
+@media screen and (max-width: 480px) and (max-height: 900px){
+    .container{
+        position: absolute;
+        width: 100%;
+        height: inherit;
+        top: 15%;
+        left: 50%;
+        transform: translate(-50%, -10%);
+
+    }
+}
